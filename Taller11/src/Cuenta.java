@@ -1,17 +1,17 @@
 
 public class Cuenta {
-	
+
 	private String titular;
 	private double cantidad;
-	
+
 	public Cuenta(String titular, double cantidad) {
-		
+
 		this.titular = titular;
 		this.cantidad = cantidad;
 	}
-	
+
 	public Cuenta() {
-		
+
 		if (cantidad < 0) {
 			cantidad = 0;
 		}
@@ -36,23 +36,21 @@ public class Cuenta {
 	public String toString() {
 		return "Cuenta [titular=" + titular + ", cantidad=" + cantidad + "]";
 	}
-	
-	public double ingresar(double cantidad) {
-		
-		if (cantidad>0)
-			this.cantidad+=cantidad;
-	
-		return cantidad;
+
+	public void ingresar(double cantidad) {
+
+		if (cantidad > 0)
+			this.cantidad += cantidad;
 	}
-	
-	public double retirar(double cantidad) {
-		
-		this.cantidad-=cantidad;
-		
-		if (this.cantidad<0) {
-			this.cantidad=0;
+
+	public void retirar(double cantidad) {
+
+		if (cantidad > 0) {
+			this.cantidad -= cantidad;
 		}
-	
-		return cantidad;
+
+		if (this.cantidad < 0) {
+			this.cantidad = 0;
+		}
 	}
 }
